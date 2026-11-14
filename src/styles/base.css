@@ -11,6 +11,19 @@ body {
   font: 400 16px/1.55 var(--font-text);
 }
 
+/* The header takes its own height; main fills the rest of the screen. */
+#root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100dvh;
+}
+
+main {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+}
+
 h1,
 h2,
 h3 {

@@ -1,0 +1,9 @@
+.map-page {
+  position: relative;
+  flex: 1;
+}
+
+.map-view {
+  position: absolute;
+  inset: 0;
+}
