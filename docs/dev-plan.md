@@ -15,13 +15,13 @@ Stack reminder: TypeScript, React, Vite, MapLibre GL JS, React Router (hash rout
 
 ## Phase 0 – Project setup
 
-### - [ ] T01 Scaffold the app
+### - [x] T01 Scaffold the app
 - Create a Vite project with the React + TypeScript template. Add ESLint and Prettier with default rules.
 - Remove the template's demo content; leave one empty `App` component.
 - Needs: nothing.
 - Done when: `npm run dev` shows an empty page, `npm run build` and `npm run lint` pass.
 
-### - [ ] T02 Deploy to GitLab Pages
+### - [x] T02 Deploy to GitLab Pages
 - Add `.gitlab-ci.yml` with two jobs: build (lint + `npm run build`) and `pages` (publishes `dist` as `public`, only on the default branch).
 - Set Vite `base` so assets load from the project's Pages sub-path.
 - Needs: T01.
