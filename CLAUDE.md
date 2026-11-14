@@ -18,7 +18,7 @@ Ski touring map of the Tatra Mountains: a static web app showing allowed ski tou
 
 ## Stack and conventions
 
-- TypeScript, React 19, Vite. Planned: MapLibre GL JS, React Router with **hash routing** (static hosting, no rewrites).
+- TypeScript, React 19, Vite. React Router with **hash routing** (static hosting, no rewrites). Planned: MapLibre GL JS.
 - Plain CSS with variables, no CSS framework. Design tokens live in `src/styles/tokens.css`; base element styles and shared `.button` / `.button--secondary` classes in `src/styles/base.css`. Use the variables, never hard-coded hex values.
 - Fonts are self-hosted via Fontsource (`@fontsource-variable/inter` for text, `@fontsource-variable/space-grotesk` for headings), imported in `src/main.tsx`. Do not add Google Fonts links.
 - Colour rule: cool colours for normal UI; warm colours (yellow, orange, red, purple, amber) only for warnings and the slope overlay.

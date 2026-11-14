@@ -46,6 +46,19 @@ button {
   outline-offset: 2px;
 }
 
+.page {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  max-width: 820px;
+  margin: 0 auto;
+  padding: 56px 24px;
+}
+
+.page p {
+  margin: 0;
+}
+
 .button {
   display: inline-flex;
   align-items: center;

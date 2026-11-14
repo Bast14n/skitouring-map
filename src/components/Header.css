@@ -1,0 +1,140 @@
+.header {
+  --focus-ring: var(--color-accent-bright);
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 4px 24px;
+  min-height: 56px;
+  padding: 0 20px;
+  background: var(--color-primary);
+  color: var(--color-surface);
+}
+
+.header__brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-height: var(--tap-min);
+  color: inherit;
+  text-decoration: none;
+}
+
+.header__brand:hover {
+  color: inherit;
+}
+
+.header__logo {
+  flex: none;
+  width: 26px;
+  height: 26px;
+  color: var(--color-accent-bright);
+}
+
+.header__title {
+  font-family: var(--font-heading);
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+.header__subtitle {
+  color: var(--color-text-on-dark-muted);
+  font-size: 13px;
+}
+
+.header__nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+
+.header__link {
+  display: flex;
+  align-items: center;
+  min-height: 56px;
+  padding: 0 14px;
+  color: var(--color-surface);
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.header__link:hover {
+  color: var(--color-surface);
+  box-shadow: inset 0 -3px 0 var(--color-text-on-dark-muted);
+}
+
+.header__link[aria-current="page"] {
+  font-weight: 600;
+  box-shadow: inset 0 -3px 0 var(--color-accent-bright);
+}
+
+.header__menu-button {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: var(--tap-min);
+  height: var(--tap-min);
+  padding: 0;
+  border: 0;
+  border-radius: var(--radius-sm);
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+}
+
+@media (max-width: 639px) {
+  .header {
+    padding: 0 6px 0 16px;
+  }
+
+  .header__brand {
+    gap: 8px;
+  }
+
+  .header__logo {
+    width: 24px;
+    height: 24px;
+  }
+
+  .header__title {
+    font-size: 17px;
+  }
+
+  .header__subtitle {
+    display: none;
+  }
+
+  .header__menu-button {
+    display: flex;
+  }
+
+  .header__nav {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    z-index: 10;
+    display: none;
+    flex-direction: column;
+    gap: 0;
+    padding-bottom: 8px;
+    background: var(--color-primary);
+    border-top: 1px solid var(--color-accent);
+  }
+
+  .header__nav--open {
+    display: flex;
+  }
+
+  .header__link {
+    min-height: var(--tap-min);
+    padding: 0 16px;
+  }
+
+  .header__link:hover,
+  .header__link[aria-current="page"] {
+    box-shadow: inset 3px 0 0 var(--color-accent-bright);
+  }
+}

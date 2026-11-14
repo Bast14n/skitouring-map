@@ -36,7 +36,7 @@ Stack reminder: TypeScript, React, Vite, MapLibre GL JS, React Router (hash rout
 - Needs: T01.
 - Done when: a test page shows a heading, body text, a primary button and a secondary button that match the design canvas.
 
-### - [ ] T04 Routing and app shell
+### - [x] T04 Routing and app shell
 
 - Add React Router with hash routing and these routes: `/`, `/routes/:id`, `/info`, `/about`, and a catch-all.
 - Build the header: logo mark, "Ski Touring Map", "Tatra Mountains", and the nav links Map, Safety and rules, About with the active underline. On narrow screens the nav collapses into a menu button.
