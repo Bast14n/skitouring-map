@@ -1,0 +1,39 @@
+/* Polar blue palette from the design canvas (spec section 5.1) */
+:root {
+  /* Interface */
+  --color-primary: #0b2545;
+  --color-accent: #1660c4;
+  --color-accent-bright: #38b6f5;
+  --color-bg: #f5f8fc;
+  --color-surface: #ffffff;
+  --color-border: #d6e0ee;
+  --color-text-secondary: #4f5d73;
+  --color-text-on-dark-muted: #b8c4d6;
+  --color-selected-bg: #dcebfb;
+
+  /* Warning */
+  --color-warning-text: #8a4b08;
+  --color-warning-bg: #fff4d6;
+  --color-warning-border: #f0dda8;
+
+  /* Slope steepness overlay (spec section 5.4) */
+  --color-slope-30: #f9e04c;
+  --color-slope-35: #f39c12;
+  --color-slope-40: #e03c31;
+  --color-slope-45: #8e3b9e;
+
+  /* User position */
+  --color-position: #1a73e8;
+
+  /* Type */
+  --font-text: "Inter Variable", Inter, system-ui, sans-serif;
+  --font-heading:
+    "Space Grotesk Variable", "Space Grotesk", Inter, system-ui, sans-serif;
+
+  /* Shape and sizing */
+  --radius-sm: 8px;
+  --radius-md: 10px;
+  --radius-lg: 12px;
+  --tap-min: 44px;
+  --focus-ring: var(--color-accent);
+}

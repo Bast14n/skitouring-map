@@ -1,11 +1,6 @@
+@import "./styles/tokens.css";
+@import "./styles/base.css";
+
 :root {
   color-scheme: light;
-}
-
-* {
-  box-sizing: border-box;
-}
-
-body {
-  margin: 0;
 }

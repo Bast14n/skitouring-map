@@ -20,17 +20,17 @@ V1 is deliberately small: a map, a set of predefined routes, one overlay. Everyt
 
 ### In scope
 
-| # | Feature | Notes |
-|---|---------|-------|
-| 1 | Web app in React | Desktop and mobile browsers, responsive |
-| 2 | Winter base map | Polish and Slovak Tatras, winter styling |
-| 3 | Predefined ski touring routes | Hardcoded in the repo, only routes allowed by the parks, **name only** |
-| 4 | Slope steepness overlay | Can be switched on and off, with a legend |
-| 5 | User position | "Locate me" button, browser geolocation |
-| 6 | Info links | TPN information; suggested additions: TOPR avalanche bulletin and the Slovak equivalents |
-| 7 | Fixed safety notice | "Check current park rules and avalanche danger before you go" |
-| 8 | English interface | Single language |
-| 9 | Free hosting | Static site on GitHub Pages, no accounts, no backend |
+| #   | Feature                       | Notes                                                                                    |
+| --- | ----------------------------- | ---------------------------------------------------------------------------------------- |
+| 1   | Web app in React              | Desktop and mobile browsers, responsive                                                  |
+| 2   | Winter base map               | Polish and Slovak Tatras, winter styling                                                 |
+| 3   | Predefined ski touring routes | Hardcoded in the repo, only routes allowed by the parks, **name only**                   |
+| 4   | Slope steepness overlay       | Can be switched on and off, with a legend                                                |
+| 5   | User position                 | "Locate me" button, browser geolocation                                                  |
+| 6   | Info links                    | TPN information; suggested additions: TOPR avalanche bulletin and the Slovak equivalents |
+| 7   | Fixed safety notice           | "Check current park rules and avalanche danger before you go"                            |
+| 8   | English interface             | Single language                                                                          |
+| 9   | Free hosting                  | Static site on GitHub Pages, no accounts, no backend                                     |
 
 ### Out of scope for V1 (planned later)
 
@@ -52,8 +52,17 @@ V1 is deliberately small: a map, a set of predefined routes, one overlay. Everyt
 ```json
 {
   "type": "Feature",
-  "properties": { "id": "kasprowy-goryczkowa", "name": "Kuźnice – Kasprowy Wierch (Dolina Goryczkowa)" },
-  "geometry": { "type": "LineString", "coordinates": [[19.98, 49.27], [19.98, 49.23]] }
+  "properties": {
+    "id": "kasprowy-goryczkowa",
+    "name": "Kuźnice – Kasprowy Wierch (Dolina Goryczkowa)"
+  },
+  "geometry": {
+    "type": "LineString",
+    "coordinates": [
+      [19.98, 49.27],
+      [19.98, 49.23]
+    ]
+  }
 }
 ```
 
@@ -63,22 +72,22 @@ All route access goes through one small data module, so replacing the file with 
 
 ## 3. Stack
 
-| Layer | Choice | Why |
-|-------|--------|-----|
-| Language | TypeScript | Typed route data, safer refactoring later |
-| UI | React | Requested |
-| Build | Vite | Produces a plain static site |
-| Map engine | MapLibre GL JS | Open source, vector maps, hillshade and terrain support |
-| Routing between pages | React Router with hash routing | Works on static hosting without server rewrites |
-| Styling | Plain CSS with CSS variables | The palette below maps directly to variables |
-| Base map tiles | OpenFreeMap (OpenStreetMap data) | Free, no API key, no request limits |
-| Base map style | Custom winter style JSON in the repo | Full control over colours |
-| Elevation data | Mapterhorn public terrain tiles | Free, high resolution in Europe |
-| Slope steepness | Calculated in the browser from elevation tiles | No tiles of our own to generate or host |
-| Routes | GeoJSON file in the repo | Hardcoded for V1 |
-| Position | Browser Geolocation API | Works because Pages serves over HTTPS |
-| Hosting | GitHub Pages, deployed by GitHub Actions | Free, limit of 1 GB per site (published artifact) |
-| Backend | None | Not needed until the admin panel |
+| Layer                 | Choice                                         | Why                                                     |
+| --------------------- | ---------------------------------------------- | ------------------------------------------------------- |
+| Language              | TypeScript                                     | Typed route data, safer refactoring later               |
+| UI                    | React                                          | Requested                                               |
+| Build                 | Vite                                           | Produces a plain static site                            |
+| Map engine            | MapLibre GL JS                                 | Open source, vector maps, hillshade and terrain support |
+| Routing between pages | React Router with hash routing                 | Works on static hosting without server rewrites         |
+| Styling               | Plain CSS with CSS variables                   | The palette below maps directly to variables            |
+| Base map tiles        | OpenFreeMap (OpenStreetMap data)               | Free, no API key, no request limits                     |
+| Base map style        | Custom winter style JSON in the repo           | Full control over colours                               |
+| Elevation data        | Mapterhorn public terrain tiles                | Free, high resolution in Europe                         |
+| Slope steepness       | Calculated in the browser from elevation tiles | No tiles of our own to generate or host                 |
+| Routes                | GeoJSON file in the repo                       | Hardcoded for V1                                        |
+| Position              | Browser Geolocation API                        | Works because Pages serves over HTTPS                   |
+| Hosting               | GitHub Pages, deployed by GitHub Actions       | Free, limit of 1 GB per site (published artifact)       |
+| Backend               | None                                           | Not needed until the admin panel                        |
 
 Running cost: 0.
 
@@ -148,66 +157,76 @@ A simple page with a link back to the map.
 
 ### Principle
 
-Cool colours for everything normal, warm colours only for warnings and steep terrain. Navy and teal carry the interface and the routes. Yellow, orange, red and purple appear only in the slope overlay and in warnings, so a warm colour on screen always means "pay attention".
+Cool colours for everything normal, warm colours only for warnings and steep terrain. Navy and blue carry the interface and the routes. Yellow, orange, red and purple appear only in the slope overlay and in warnings, so a warm colour on screen always means "pay attention".
 
 ### 5.1 Interface
 
-| Role | Name | Hex | Used for |
-|------|------|-----|----------|
-| Primary | Night navy | `#14213D` | Header, main text, default route line |
-| Accent | Glacier teal | `#0E7C86` | Buttons, links, active controls |
-| Accent bright | Ice teal | `#14B8B0` | Selected route, focus highlights |
-| Background | Snow | `#F7FAFC` | Page background |
-| Surface | White | `#FFFFFF` | Panels, cards, sheets |
-| Border | Frost | `#D9E2EC` | Dividers, panel borders |
-| Secondary text | Slate | `#52606D` | Captions, helper text |
-| Warning text | Amber dark | `#8A4B08` | Safety notice text |
-| Warning background | Amber light | `#FFF4D6` | Safety notice background |
+Polar blue palette, as drawn on the design canvas. The CSS variables live in `src/styles/tokens.css`.
+
+| Role                | Name        | Hex       | Used for                                                |
+| ------------------- | ----------- | --------- | ------------------------------------------------------- |
+| Primary             | Polar night | `#0B2545` | Header, main text, default route line                   |
+| Accent              | Cobalt      | `#1660C4` | Buttons, links, active controls, focus outline          |
+| Accent bright       | Sky ice     | `#38B6F5` | Selected route, active nav underline, logo mark         |
+| Background          | Powder      | `#F5F8FC` | Page background                                         |
+| Surface             | White       | `#FFFFFF` | Panels, cards, sheets                                   |
+| Border              | Haze        | `#D6E0EE` | Dividers, panel borders                                 |
+| Secondary text      | Slate       | `#4F5D73` | Captions, helper text                                   |
+| Muted text on dark  | Mist        | `#B8C4D6` | Secondary text on Polar night (header, emergency cards) |
+| Selected background | Ice tint    | `#DCEBFB` | Selected row in the route list                          |
+| Warning text        | Amber dark  | `#8A4B08` | Safety notice text                                      |
+| Warning background  | Amber light | `#FFF4D6` | Safety notice background                                |
+| Warning border      | Amber edge  | `#F0DDA8` | Safety notice border                                    |
+
+Fonts: Inter for text, Space Grotesk for headings (self-hosted via Fontsource).
 
 Checked contrast ratios (4.5 or more passes for normal text):
 
-| Combination | Ratio |
-|-------------|-------|
-| Night navy on Snow | 15.2 |
-| White on Night navy | 16.0 |
-| White on Glacier teal | 5.0 |
-| Glacier teal on Snow | 4.7 |
-| Slate on White | 6.5 |
-| Amber dark on Amber light | 6.2 |
+| Combination               | Ratio |
+| ------------------------- | ----- |
+| Polar night on Powder     | 14.4  |
+| White on Polar night      | 15.4  |
+| White on Cobalt           | 6.0   |
+| Cobalt on Powder          | 5.6   |
+| Cobalt on White           | 6.0   |
+| Slate on White            | 6.7   |
+| Mist on Polar night       | 8.7   |
+| Polar night on Ice tint   | 12.7  |
+| Amber dark on Amber light | 6.2   |
 
 ### 5.2 Winter base map
 
-| Element | Hex | Notes |
-|---------|-----|-------|
-| Snow and open ground | `#F4F8FB` | Slightly cooler than the page background |
-| Forest | `#C9D8CC` | Muted grey-green, stays in the background |
-| Lakes and streams | `#A9D3F0` | |
-| Rock and scree | `#D5D8DC` | |
-| Contour lines | `#9FB3C8` | Every fifth line darker: `#7B8FA6` |
-| Hillshade | Blue-grey shadows | Soft, so the slope overlay stays readable |
-| Summer hiking trails | `#8A94A0` | Thin dashed lines, for orientation only |
-| Place and peak labels | `#14213D` | With a white halo |
+| Element               | Hex               | Notes                                     |
+| --------------------- | ----------------- | ----------------------------------------- |
+| Snow and open ground  | `#F4F8FB`         | Slightly cooler than the page background  |
+| Forest                | `#C9D8CC`         | Muted grey-green, stays in the background |
+| Lakes and streams     | `#A9D3F0`         |                                           |
+| Rock and scree        | `#D5D8DC`         |                                           |
+| Contour lines         | `#9FB3C8`         | Every fifth line darker: `#7B8FA6`        |
+| Hillshade             | Blue-grey shadows | Soft, so the slope overlay stays readable |
+| Summer hiking trails  | `#8A94A0`         | Thin dashed lines, for orientation only   |
+| Place and peak labels | `#0B2545`         | With a white halo                         |
 
 ### 5.3 Routes and position
 
-| Element | Style |
-|---------|-------|
-| Ski touring route | Night navy `#14213D` line with a white outline. The white outline keeps it readable on top of every slope colour. |
-| Selected route | Ice teal `#14B8B0` line, thicker, with a Night navy outline |
-| User position | Blue dot `#1A73E8` with a white ring and a soft halo |
+| Element           | Style                                                                                                              |
+| ----------------- | ------------------------------------------------------------------------------------------------------------------ |
+| Ski touring route | Polar night `#0B2545` line with a white outline. The white outline keeps it readable on top of every slope colour. |
+| Selected route    | Sky ice `#38B6F5` line, thicker, with a Polar night outline                                                        |
+| User position     | Blue dot `#1A73E8` with a white ring and a soft halo                                                               |
 
-Teal is not used anywhere in the slope overlay, so a selected route never blends into steep terrain.
+Blue is not used anywhere in the slope overlay, so a selected route never blends into steep terrain.
 
 ### 5.4 Slope steepness overlay
 
 Shown at about 50% opacity over the base map. Terrain under 30° stays uncoloured.
 
-| Steepness | Colour | Hex |
-|-----------|--------|-----|
-| 30–35° | Yellow | `#F9E04C` |
-| 35–40° | Orange | `#F39C12` |
-| 40–45° | Red | `#E03C31` |
-| over 45° | Purple | `#8E3B9E` |
+| Steepness | Colour | Hex       |
+| --------- | ------ | --------- |
+| 30–35°    | Yellow | `#F9E04C` |
+| 35–40°    | Orange | `#F39C12` |
+| 40–45°    | Red    | `#E03C31` |
+| over 45°  | Purple | `#8E3B9E` |
 
 These classes follow the convention common on avalanche terrain maps, so the overlay reads the same way as maps ski tourers already know.
 
