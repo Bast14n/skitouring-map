@@ -9,7 +9,7 @@ How to use this list:
 - "Done when" is the check to run before closing the task.
 - Tick the box when a task is merged.
 
-Stack reminder: TypeScript, React, Vite, MapLibre GL JS, React Router (hash routing), plain CSS with variables, GitLab Pages. No backend.
+Stack reminder: TypeScript, React, Vite, MapLibre GL JS, React Router (hash routing), plain CSS with variables, GitHub Pages. No backend.
 
 ---
 
@@ -21,8 +21,8 @@ Stack reminder: TypeScript, React, Vite, MapLibre GL JS, React Router (hash rout
 - Needs: nothing.
 - Done when: `npm run dev` shows an empty page, `npm run build` and `npm run lint` pass.
 
-### - [x] T02 Deploy to GitLab Pages
-- Add `.gitlab-ci.yml` with two jobs: build (lint + `npm run build`) and `pages` (publishes `dist` as `public`, only on the default branch).
+### - [x] T02 Deploy to GitHub Pages
+- Add `.github/workflows/deploy.yml` with two jobs: build (lint + `npm run build`, uploads `dist` as the Pages artifact) and deploy (`actions/deploy-pages`, only on the default branch). Pages source must be set to "GitHub Actions" in the repo settings.
 - Set Vite `base` so assets load from the project's Pages sub-path.
 - Needs: T01.
 - Done when: a push to the default branch publishes the empty page at the Pages address and assets load without 404s.

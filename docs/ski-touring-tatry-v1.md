@@ -30,7 +30,7 @@ V1 is deliberately small: a map, a set of predefined routes, one overlay. Everyt
 | 6 | Info links | TPN information; suggested additions: TOPR avalanche bulletin and the Slovak equivalents |
 | 7 | Fixed safety notice | "Check current park rules and avalanche danger before you go" |
 | 8 | English interface | Single language |
-| 9 | Free hosting | Static site on GitLab Pages, no accounts, no backend |
+| 9 | Free hosting | Static site on GitHub Pages, no accounts, no backend |
 
 ### Out of scope for V1 (planned later)
 
@@ -77,7 +77,7 @@ All route access goes through one small data module, so replacing the file with 
 | Slope steepness | Calculated in the browser from elevation tiles | No tiles of our own to generate or host |
 | Routes | GeoJSON file in the repo | Hardcoded for V1 |
 | Position | Browser Geolocation API | Works because Pages serves over HTTPS |
-| Hosting | GitLab Pages, deployed by GitLab CI | Free, limit of 1 GB per site |
+| Hosting | GitHub Pages, deployed by GitHub Actions | Free, limit of 1 GB per site (published artifact) |
 | Backend | None | Not needed until the admin panel |
 
 Running cost: 0.
