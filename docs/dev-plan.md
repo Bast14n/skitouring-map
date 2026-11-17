@@ -81,6 +81,12 @@ Stack reminder: TypeScript, React, Vite, MapLibre GL JS, React Router (hash rout
 - Needs: T08.
 - Done when: trails are visible for orientation but clearly quieter than the ski touring routes will be.
 
+### - [ ] T09a Peak labels
+
+- The OpenFreeMap style has no peak layer. Add a symbol layer on the `mountain_peak` source layer: small Polar night triangle, peak name and elevation (for example "Kasprowy Wierch / 1987 m"), Polar night text with a white halo, as in the design.
+- Needs: T08.
+- Done when: the main Tatra peaks are labelled from a mid zoom level and labels do not crowd each other.
+
 ### - [ ] T10 Hillshade
 
 - Add the Mapterhorn terrain tiles as a `raster-dem` source and a `hillshade` layer with soft blue-grey shadows.

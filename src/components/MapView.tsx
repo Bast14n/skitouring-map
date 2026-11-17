@@ -6,9 +6,9 @@ import "maplibre-gl/dist/maplibre-gl.css";
 import {
   INITIAL_ZOOM,
   MAP_PARAM,
+  MAP_STYLE,
   MAX_ZOOM,
   MIN_ZOOM,
-  STYLE_URL,
   TATRA_BOUNDS,
   TATRA_CENTER,
 } from "../map/config.ts";
@@ -64,7 +64,7 @@ function MapView() {
     // attribution control stays.
     const map = new Map({
       container: containerRef.current,
-      style: STYLE_URL,
+      style: MAP_STYLE,
       center: position?.center ?? TATRA_CENTER,
       zoom: position?.zoom ?? INITIAL_ZOOM,
       maxBounds: TATRA_BOUNDS,

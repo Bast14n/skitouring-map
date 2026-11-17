@@ -1,7 +1,9 @@
-import type { LngLatLike } from "maplibre-gl";
+import type { LngLatLike, StyleSpecification } from "maplibre-gl";
+import winterStyle from "./winter-style.json";
 
-// OpenFreeMap style used as-is until the winter style (T08).
-export const STYLE_URL = "https://tiles.openfreemap.org/styles/liberty";
+// OpenFreeMap Liberty recoloured for winter (spec section 5.2). Tiles, sprite
+// and fonts still come from OpenFreeMap.
+export const MAP_STYLE = winterStyle as StyleSpecification;
 
 export const TATRA_CENTER: LngLatLike = [20.0, 49.2];
 export const INITIAL_ZOOM = 10.5;
