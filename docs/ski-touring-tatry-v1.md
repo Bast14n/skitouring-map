@@ -106,7 +106,7 @@ Descriptions only. No layouts or components yet.
 
 The main and default view. Almost all time in the app is spent here.
 
-- Full-screen winter map, opened on the Tatras, limited to the Tatra area so users cannot scroll away to an empty map.
+- Full-screen winter map, opened on the Tatras, limited to the Tatra area so users cannot scroll away to an empty map. The area reaches north as far as Myślenice.
 - All predefined routes drawn on the map. Selecting one highlights it and shows its name.
 - Controls: zoom in and out, "locate me", slope steepness on and off.
 - Legend for the slope steepness colours, shown only when the overlay is on.

@@ -47,7 +47,7 @@ Stack reminder: TypeScript, React, Vite, MapLibre GL JS, React Router (hash rout
 
 ## Phase 1 – Map
 
-### - [ ] T05 Map component
+### - [x] T05 Map component
 
 - Add MapLibre GL JS. Create a `MapView` component that fills the area under the header.
 - Use an OpenFreeMap style as-is for now. Open on the Tatras, set `maxBounds` to the Tatra area plus a margin, and set sensible min and max zoom.
@@ -61,7 +61,7 @@ Stack reminder: TypeScript, React, Vite, MapLibre GL JS, React Router (hash rout
 - Needs: T05.
 - Done when: both buttons zoom the map, are reachable by keyboard and have `aria-label`s.
 
-### - [ ] T07 Map position in the address
+### - [x] T07 Map position in the address
 
 - Store centre and zoom in the address so a view can be shared. MapLibre's built-in `hash` option conflicts with hash routing, so keep the position as a query parameter inside the hash route (for example `#/?map=12.5/49.232/19.981`).
 - Update it after the map stops moving (not on every frame) and read it on load.
@@ -186,7 +186,8 @@ Stack reminder: TypeScript, React, Vite, MapLibre GL JS, React Router (hash rout
 
 ### - [ ] T24 Locate me
 
-- Add the locate button. On press, ask for the position with the browser Geolocation API, show the blue dot with a white ring and an accuracy halo, and centre the map on it.
+- Add the locate button. On press, ask for the position with the browser Geolocation API, show the blue dot with a white ring (no accuracy circle, it hides the map), and centre the map on it.
+- Also locate once automatically when the app opens, unless the address already holds a map position (a shared view wins). Failures of this automatic attempt stay silent.
 - Handle the failure cases with a short message: permission denied, position unavailable, and position outside the map area (do not move the map then).
 - Needs: T06.
 - Done when: it works on a phone over HTTPS, and each failure case shows its message instead of failing silently.

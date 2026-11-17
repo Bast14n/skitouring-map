@@ -35,5 +35,6 @@
   --radius-md: 10px;
   --radius-lg: 12px;
   --tap-min: 44px;
+  --shadow-control: 0 2px 8px rgba(20, 33, 61, 0.12);
   --focus-ring: var(--color-accent);
 }
