@@ -55,7 +55,7 @@ Stack reminder: TypeScript, React, Vite, MapLibre GL JS, React Router (hash rout
 - Needs: T04.
 - Done when: the map loads on `/`, cannot be dragged away from the Tatras, and resizes with the window.
 
-### - [ ] T06 Custom zoom buttons
+### - [x] T06 Custom zoom buttons
 
 - Hide MapLibre's default controls. Add the styled zoom in and zoom out buttons from the design (44 px, top right).
 - Needs: T05.
@@ -184,7 +184,7 @@ Stack reminder: TypeScript, React, Vite, MapLibre GL JS, React Router (hash rout
 - Needs: T22.
 - Done when: both layouts match the design and the legend never overlaps the route card.
 
-### - [ ] T24 Locate me
+### - [x] T24 Locate me
 
 - Add the locate button. On press, ask for the position with the browser Geolocation API, show the blue dot with a white ring (no accuracy circle, it hides the map), and centre the map on it.
 - Also locate once automatically when the app opens, unless the address already holds a map position (a shared view wins). Failures of this automatic attempt stay silent.
