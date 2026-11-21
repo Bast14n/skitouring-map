@@ -5,7 +5,14 @@
 import { mkdir, writeFile } from "node:fs/promises";
 
 const OUTPUT = new URL("../src/data/signposts.geojson", import.meta.url);
-const OVERPASS = "https://overpass-api.de/api/interpreter";
+// Public Overpass servers are often overloaded (502/504/429), so try mirrors
+// in turn.
+const OVERPASS = [
+  "https://overpass-api.de/api/interpreter",
+  "https://overpass.private.coffee/api/interpreter",
+  "https://maps.mail.ru/osm/tools/overpass/api/interpreter",
+];
+const TIMEOUT_MS = 90_000;
 // south, west, north, east
 const BBOX = [49.05, 19.6, 49.35, 20.4];
 const QUERY = `[out:json][timeout:60];node["information"="guidepost"]["name"](${BBOX.join(",")});out;`;
@@ -29,18 +36,28 @@ function parseEle(value) {
   return Number.isFinite(ele) ? Math.round(ele) : undefined;
 }
 
-const response = await fetch(OVERPASS, {
-  method: "POST",
-  // Overpass answers 406 without a User-Agent.
-  headers: { "User-Agent": "skitouring-map (data:signposts script)" },
-  body: new URLSearchParams({ data: QUERY }),
-});
-if (!response.ok) {
-  throw new Error(
-    `Overpass answered ${response.status} ${response.statusText}`,
-  );
+async function fetchElements() {
+  const failures = [];
+  for (const url of OVERPASS) {
+    try {
+      const response = await fetch(url, {
+        method: "POST",
+        // Overpass answers 406 without a User-Agent.
+        headers: { "User-Agent": "skitouring-map (data:signposts script)" },
+        body: new URLSearchParams({ data: QUERY }),
+        signal: AbortSignal.timeout(TIMEOUT_MS),
+      });
+      if (response.ok) return (await response.json()).elements;
+      failures.push(`${url}: ${response.status} ${response.statusText}`);
+    } catch (error) {
+      failures.push(`${url}: ${error.message}`);
+    }
+    console.warn(`Overpass failed, ${failures.at(-1)}`);
+  }
+  throw new Error(`All Overpass servers failed:\n${failures.join("\n")}`);
 }
-const { elements } = await response.json();
+
+const elements = await fetchElements();
 
 // Posts with an elevation first, so they win over their duplicates.
 const posts = elements
@@ -83,5 +100,5 @@ const collection = {
 
 // src/data/ holds nothing tracked, so it is missing on a fresh checkout.
 await mkdir(new URL(".", OUTPUT), { recursive: true });
-await writeFile(OUTPUT,JSON.stringify(collection) + "\n");
+await writeFile(OUTPUT, JSON.stringify(collection) + "\n");
 console.log(`Wrote ${kept.length} signposts to ${OUTPUT.pathname}`);
