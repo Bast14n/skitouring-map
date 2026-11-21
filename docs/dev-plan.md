@@ -87,6 +87,13 @@ Stack reminder: TypeScript, React, Vite, MapLibre GL JS, React Router (hash rout
 - Needs: T08.
 - Done when: the main Tatra peaks are labelled from a mid zoom level and labels do not crowd each other.
 
+### - [x] T09b Trail signposts
+
+- The tiles have no valleys and a style can't tell whether a point is on a trail, so show the real trail signposts instead: OSM guideposts (`information=guidepost`, named) in the Tatras, without bike-only and unofficial posts, same-name posts within 300 m merged.
+- `scripts/fetch-signposts.mjs` (`npm run data:signposts`) writes the snapshot `src/data/signposts.geojson` (gitignored, regenerated in CI before each build); the map loads it as a GeoJSON source. Signpost icon (Polar night, white outline), name and elevation, from zoom 13; peaks keep priority.
+- Needs: T09a.
+- Done when: named signposts such as Nosalowa Przełęcz and Hala Gąsienicowa show once each from zoom 13, and none appear off the trails.
+
 ### - [ ] T10 Hillshade
 
 - Add the Mapterhorn terrain tiles as a `raster-dem` source and a `hillshade` layer with soft blue-grey shadows.
@@ -259,7 +266,7 @@ Stack reminder: TypeScript, React, Vite, MapLibre GL JS, React Router (hash rout
 
 ### - [ ] T33 Release check
 
-- Write the README (run, build, deploy, how to add a route). Set page title, description and favicon. Check the built site size against the 1 GB Pages limit, check attribution on every page, and test on one iPhone and one Android phone.
+- Write the README (run, build, deploy, how to add a route, how to refresh the trail signposts). Set page title, description and favicon. Check the built site size against the 1 GB Pages limit, check attribution on every page, and test on one iPhone and one Android phone.
 - Needs: everything above.
 - Done when: the checklist in the README is ticked and the Pages address is ready to share.
 

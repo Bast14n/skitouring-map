@@ -1,7 +1,8 @@
 // Fetches the trail signposts (OSM guideposts) in the Tatras and writes them to
-// src/data/signposts.geojson. Run with `npm run data:signposts`.
+// src/data/signposts.geojson. Run with `npm run data:signposts`; CI runs it
+// before every build, so the file is gitignored, not committed.
 // Data © OpenStreetMap contributors, ODbL.
-import { writeFile } from "node:fs/promises";
+import { mkdir, writeFile } from "node:fs/promises";
 
 const OUTPUT = new URL("../src/data/signposts.geojson", import.meta.url);
 const OVERPASS = "https://overpass-api.de/api/interpreter";
@@ -62,7 +63,7 @@ for (const post of posts) {
   if (!duplicate) kept.push(post);
 }
 
-// Stable order keeps diffs small when the data is refreshed.
+// Stable order keeps builds reproducible for the same OSM data.
 kept.sort(
   (a, b) =>
     a.name.localeCompare(b.name, "pl") || a.lat - b.lat || a.lon - b.lon,
@@ -80,5 +81,7 @@ const collection = {
   })),
 };
 
-await writeFile(OUTPUT, JSON.stringify(collection) + "\n");
+// src/data/ holds nothing tracked, so it is missing on a fresh checkout.
+await mkdir(new URL(".", OUTPUT), { recursive: true });
+await writeFile(OUTPUT,JSON.stringify(collection) + "\n");
 console.log(`Wrote ${kept.length} signposts to ${OUTPUT.pathname}`);

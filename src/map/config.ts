@@ -4,7 +4,8 @@ import winterStyle from "./winter-style.json";
 
 // OpenFreeMap Liberty recoloured for winter (spec section 5.2). Tiles, sprite
 // and fonts still come from OpenFreeMap. Trail signposts are a local OSM
-// snapshot (`npm run data:signposts`), loaded as a file, not bundled.
+// snapshot fetched at build time (`npm run data:signposts`), loaded as a file,
+// not bundled.
 const baseStyle = winterStyle as StyleSpecification;
 export const MAP_STYLE: StyleSpecification = {
   ...baseStyle,
