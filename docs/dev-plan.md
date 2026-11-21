@@ -101,7 +101,7 @@ Stack reminder: TypeScript, React, Vite, MapLibre GL JS, React Router (hash rout
 - Needs: T08.
 - Done when: ridges and valleys are readable on the map and labels stay legible on top.
 
-### - [ ] T11 Contour lines
+### - [x] T11 Contour lines
 
 - Generate contour lines in the browser from the same elevation source (the `maplibre-contour` library does this). Style: `#9FB3C8`, every fifth line `#7B8FA6`.
 - Needs: T10.

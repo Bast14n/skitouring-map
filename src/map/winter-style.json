@@ -188,6 +188,32 @@
       }
     },
     {
+      "id": "contour_minor",
+      "type": "line",
+      "source": "contours",
+      "source-layer": "contours",
+      "minzoom": 12,
+      "filter": ["==", ["get", "level"], 0],
+      "paint": {
+        "line-color": "#9FB3C8",
+        "line-width": ["interpolate", ["linear"], ["zoom"], 12, 0.5, 16, 0.8],
+        "line-opacity": ["interpolate", ["linear"], ["zoom"], 12, 0, 12.5, 1]
+      }
+    },
+    {
+      "id": "contour_index",
+      "type": "line",
+      "source": "contours",
+      "source-layer": "contours",
+      "minzoom": 12,
+      "filter": ["==", ["get", "level"], 1],
+      "paint": {
+        "line-color": "#7B8FA6",
+        "line-width": ["interpolate", ["linear"], ["zoom"], 12, 0.8, 16, 1.3],
+        "line-opacity": ["interpolate", ["linear"], ["zoom"], 12, 0, 12.5, 1]
+      }
+    },
+    {
       "id": "tunnel_motorway_link_casing",
       "type": "line",
       "source": "openmaptiles",
