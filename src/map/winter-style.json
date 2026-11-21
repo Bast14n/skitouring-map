@@ -2474,6 +2474,91 @@
       }
     },
     {
+      "id": "pass_label",
+      "type": "symbol",
+      "source": "openmaptiles",
+      "source-layer": "mountain_peak",
+      "minzoom": 12,
+      "filter": ["all", ["==", ["get", "class"], "saddle"], ["has", "name"]],
+      "layout": {
+        "icon-image": "pass",
+        "symbol-sort-key": ["-", ["coalesce", ["get", "ele"], 0]],
+        "text-field": [
+          "case",
+          ["has", "ele"],
+          [
+            "format",
+            ["coalesce", ["get", "name:latin"], ["get", "name"]],
+            {},
+            "\n",
+            {},
+            ["concat", ["to-string", ["get", "ele"]], " m"],
+            { "font-scale": 0.9 }
+          ],
+          ["coalesce", ["get", "name:latin"], ["get", "name"]]
+        ],
+        "text-font": ["Noto Sans Regular"],
+        "text-justify": "auto",
+        "text-max-width": 9,
+        "text-padding": 6,
+        "text-radial-offset": 0.8,
+        "text-size": ["interpolate", ["linear"], ["zoom"], 12, 11, 15, 12.5],
+        "text-variable-anchor": ["left", "right", "top", "bottom"]
+      },
+      "paint": {
+        "text-color": "#0B2545",
+        "text-halo-color": "#FFFFFF",
+        "text-halo-width": 1.5,
+        "text-halo-blur": 0.5
+      }
+    },
+    {
+      "id": "peak_label",
+      "type": "symbol",
+      "source": "openmaptiles",
+      "source-layer": "mountain_peak",
+      "minzoom": 11,
+      "filter": ["all", ["==", ["get", "class"], "peak"], ["has", "name"]],
+      "layout": {
+        "icon-image": "peak",
+        "symbol-sort-key": ["-", ["coalesce", ["get", "ele"], 0]],
+        "text-field": [
+          "case",
+          ["has", "ele"],
+          [
+            "format",
+            ["coalesce", ["get", "name:latin"], ["get", "name"]],
+            { "text-font": ["literal", ["Noto Sans Bold"]] },
+            "\n",
+            {},
+            ["concat", ["to-string", ["get", "ele"]], " m"],
+            {
+              "text-font": ["literal", ["Noto Sans Regular"]],
+              "font-scale": 0.9
+            }
+          ],
+          [
+            "format",
+            ["coalesce", ["get", "name:latin"], ["get", "name"]],
+            { "text-font": ["literal", ["Noto Sans Bold"]] }
+          ]
+        ],
+        "text-font": ["Noto Sans Regular"],
+        "text-justify": "auto",
+        "text-max-width": 9,
+        "text-padding": 6,
+        "text-radial-offset": 0.8,
+        "text-size": ["interpolate", ["linear"], ["zoom"], 11, 11, 15, 13],
+        "text-variable-anchor": ["left", "right", "top", "bottom"]
+      },
+      "paint": {
+        "text-color": "#0B2545",
+        "text-halo-color": "#FFFFFF",
+        "text-halo-width": 1.5,
+        "text-halo-blur": 0.5
+      }
+    },
+    {
       "id": "label_town",
       "type": "symbol",
       "source": "openmaptiles",

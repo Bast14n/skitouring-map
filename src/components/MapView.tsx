@@ -12,6 +12,7 @@ import {
   TATRA_BOUNDS,
   TATRA_CENTER,
 } from "../map/config.ts";
+import { createIcon, ICON_PIXEL_RATIO, MAP_ICONS } from "../map/icons.ts";
 import { formatMapParam, parseMapParam } from "../map/position.ts";
 import MapControls from "./MapControls.tsx";
 import "./MapView.css";
@@ -70,6 +71,15 @@ function MapView() {
       maxBounds: TATRA_BOUNDS,
       minZoom: MIN_ZOOM,
       maxZoom: MAX_ZOOM,
+    });
+
+    // Peak and pass icons are not in the sprite; add them when first needed.
+    map.on("styleimagemissing", (event) => {
+      const icon = MAP_ICONS[event.id];
+      if (!icon || map.hasImage(event.id)) return;
+      map.addImage(event.id, createIcon(icon), {
+        pixelRatio: ICON_PIXEL_RATIO,
+      });
     });
 
     // Fires once per pan, zoom or fly, not on every frame.
