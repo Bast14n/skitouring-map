@@ -387,18 +387,24 @@
         ["match", ["get", "class"], ["path", "pedestrian"], true, false]
       ],
       "paint": {
-        "line-color": "hsl(0,0%,100%)",
-        "line-dasharray": [1, 0.75],
+        "line-color": "#8A94A0",
+        "line-dasharray": [4, 3],
         "line-width": [
           "interpolate",
-          ["exponential", 1.2],
+          ["linear"],
           ["zoom"],
+          12,
+          0.6,
           14,
-          0.5,
+          1.2,
+          17,
+          1.8,
           20,
-          10
-        ]
-      }
+          2.5
+        ],
+        "line-opacity": ["interpolate", ["linear"], ["zoom"], 12, 0.6, 13, 1]
+      },
+      "minzoom": 12
     },
     {
       "id": "tunnel_motorway_link",
@@ -957,7 +963,7 @@
       "type": "line",
       "source": "openmaptiles",
       "source-layer": "transportation",
-      "minzoom": 14,
+      "minzoom": 12,
       "filter": [
         "all",
         [
@@ -974,17 +980,22 @@
         "line-join": "round"
       },
       "paint": {
-        "line-color": "hsl(0,0%,100%)",
-        "line-dasharray": [1, 0.7],
+        "line-color": "#8A94A0",
+        "line-dasharray": [4, 3],
         "line-width": [
           "interpolate",
-          ["exponential", 1.2],
+          ["linear"],
           ["zoom"],
+          12,
+          0.6,
           14,
-          1,
+          1.2,
+          17,
+          1.8,
           20,
-          10
-        ]
+          2.5
+        ],
+        "line-opacity": ["interpolate", ["linear"], ["zoom"], 12, 0.6, 13, 1]
       }
     },
     {
@@ -1463,6 +1474,9 @@
           20,
           18
         ]
+      },
+      "layout": {
+        "visibility": "none"
       }
     },
     {
@@ -1570,18 +1584,24 @@
         ["match", ["get", "class"], ["path", "pedestrian"], true, false]
       ],
       "paint": {
-        "line-color": "hsl(0,0%,100%)",
-        "line-dasharray": [1, 0.3],
+        "line-color": "#8A94A0",
+        "line-dasharray": [4, 3],
         "line-width": [
           "interpolate",
-          ["exponential", 1.2],
+          ["linear"],
           ["zoom"],
+          12,
+          0.6,
           14,
-          0.5,
+          1.2,
+          17,
+          1.8,
           20,
-          10
-        ]
-      }
+          2.5
+        ],
+        "line-opacity": ["interpolate", ["linear"], ["zoom"], 12, 0.6, 13, 1]
+      },
+      "minzoom": 12
     },
     {
       "id": "bridge_motorway_link",

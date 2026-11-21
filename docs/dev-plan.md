@@ -68,14 +68,14 @@ Stack reminder: TypeScript, React, Vite, MapLibre GL JS, React Router (hash rout
 - Needs: T05.
 - Done when: copying the address into a new tab opens the same view, and the browser back button is not flooded with entries (use `replace`).
 
-### - [ ] T08 Winter base style – colours
+### - [x] T08 Winter base style – colours
 
 - Copy the OpenFreeMap style JSON into the repo as `src/map/winter-style.json`.
 - Recolour it per spec section 5.2: snow ground, muted forest, water, rock and scree, labels in Polar night with a white halo. Hide layers that add noise (most POIs, landuse detail).
 - Needs: T05.
 - Done when: the map uses the local style and the colours match the base map in the design.
 
-### - [ ] T09 Winter base style – summer trails
+### - [x] T09 Winter base style – summer trails
 
 - Style hiking paths as thin dashed grey lines (`#8A94A0`), visible from a mid zoom level upwards.
 - Needs: T08.
