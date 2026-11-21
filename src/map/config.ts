@@ -1,9 +1,18 @@
 import type { LngLatLike, StyleSpecification } from "maplibre-gl";
+import signpostsUrl from "../data/signposts.geojson?url";
 import winterStyle from "./winter-style.json";
 
 // OpenFreeMap Liberty recoloured for winter (spec section 5.2). Tiles, sprite
-// and fonts still come from OpenFreeMap.
-export const MAP_STYLE = winterStyle as StyleSpecification;
+// and fonts still come from OpenFreeMap. Trail signposts are a local OSM
+// snapshot (`npm run data:signposts`), loaded as a file, not bundled.
+const baseStyle = winterStyle as StyleSpecification;
+export const MAP_STYLE: StyleSpecification = {
+  ...baseStyle,
+  sources: {
+    ...baseStyle.sources,
+    signposts: { type: "geojson", data: signpostsUrl },
+  },
+};
 
 export const TATRA_CENTER: LngLatLike = [20.0, 49.2];
 export const INITIAL_ZOOM = 10.5;

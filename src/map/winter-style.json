@@ -2474,14 +2474,12 @@
       }
     },
     {
-      "id": "pass_label",
+      "id": "signpost_label",
       "type": "symbol",
-      "source": "openmaptiles",
-      "source-layer": "mountain_peak",
-      "minzoom": 12,
-      "filter": ["all", ["==", ["get", "class"], "saddle"], ["has", "name"]],
+      "source": "signposts",
+      "minzoom": 13,
       "layout": {
-        "icon-image": "pass",
+        "icon-image": "signpost",
         "symbol-sort-key": ["-", ["coalesce", ["get", "ele"], 0]],
         "text-field": [
           "case",
@@ -2502,7 +2500,7 @@
         "text-max-width": 9,
         "text-padding": 6,
         "text-radial-offset": 0.8,
-        "text-size": ["interpolate", ["linear"], ["zoom"], 12, 11, 15, 12.5],
+        "text-size": ["interpolate", ["linear"], ["zoom"], 13, 11, 16, 12.5],
         "text-variable-anchor": ["left", "right", "top", "bottom"]
       },
       "paint": {

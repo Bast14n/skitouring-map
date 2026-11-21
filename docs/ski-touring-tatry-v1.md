@@ -70,6 +70,12 @@ The example above is a placeholder, not real route geometry.
 
 All route access goes through one small data module, so replacing the file with a database later does not touch the rest of the app.
 
+### Trail signposts
+
+- Source: OpenStreetMap trail guideposts (`information=guidepost`, named) in the Tatras, without bike-only and unofficial posts, and with posts of the same name within 300 m merged.
+- Storage: a static snapshot in `src/data/signposts.geojson` (`name`, `ele`), refreshed with `npm run data:signposts`.
+- Shown from zoom 13 with a signpost icon, name and elevation. Peaks keep priority where labels collide.
+
 ## 3. Stack
 
 | Layer                 | Choice                                         | Why                                                     |

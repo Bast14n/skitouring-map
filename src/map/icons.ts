@@ -29,8 +29,8 @@ const peak: IconSpec = {
   },
 };
 
-// Pass: a signpost, one arrow board on a post.
-const pass: IconSpec = {
+// Trail signpost: one arrow board on a post.
+const signpost: IconSpec = {
   width: 14,
   height: 15,
   draw(context) {
@@ -47,7 +47,7 @@ const pass: IconSpec = {
   },
 };
 
-export const MAP_ICONS: Record<string, IconSpec> = { peak, pass };
+export const MAP_ICONS: Record<string, IconSpec> = { peak, signpost };
 
 export function createIcon({ width, height, draw }: IconSpec): ImageData {
   const canvas = document.createElement("canvas");

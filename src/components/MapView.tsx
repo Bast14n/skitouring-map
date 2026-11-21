@@ -73,7 +73,7 @@ function MapView() {
       maxZoom: MAX_ZOOM,
     });
 
-    // Peak and pass icons are not in the sprite; add them when first needed.
+    // Peak and signpost icons are not in the sprite; add them when first needed.
     map.on("styleimagemissing", (event) => {
       const icon = MAP_ICONS[event.id];
       if (!icon || map.hasImage(event.id)) return;
