@@ -5,6 +5,14 @@
     "openmaptiles": {
       "type": "vector",
       "url": "https://tiles.openfreemap.org/planet"
+    },
+    "terrain": {
+      "type": "raster-dem",
+      "tiles": ["https://tiles.mapterhorn.com/{z}/{x}/{y}.webp"],
+      "encoding": "terrarium",
+      "tileSize": 512,
+      "maxzoom": 14,
+      "attribution": "<a href=\"https://mapterhorn.com/attribution\">© Mapterhorn</a>"
     }
   },
   "sprite": "https://tiles.openfreemap.org/sprites/ofm_f384/ofm",
@@ -157,6 +165,26 @@
       "filter": ["==", ["get", "class"], "sand"],
       "paint": {
         "fill-color": "#D5D8DC"
+      }
+    },
+    {
+      "id": "hillshade",
+      "type": "hillshade",
+      "source": "terrain",
+      "paint": {
+        "hillshade-shadow-color": "#4A6382",
+        "hillshade-highlight-color": "#FFFFFF",
+        "hillshade-accent-color": "#7B8FA6",
+        "hillshade-illumination-direction": 315,
+        "hillshade-exaggeration": [
+          "interpolate",
+          ["linear"],
+          ["zoom"],
+          9,
+          0.5,
+          14,
+          0.3
+        ]
       }
     },
     {

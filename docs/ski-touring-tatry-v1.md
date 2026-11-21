@@ -209,7 +209,7 @@ Checked contrast ratios (4.5 or more passes for normal text):
 | Lakes and streams     | `#A9D3F0`         |                                           |
 | Rock and scree        | `#D5D8DC`         |                                           |
 | Contour lines         | `#9FB3C8`         | Every fifth line darker: `#7B8FA6`        |
-| Hillshade             | Blue-grey shadows | Soft, so the slope overlay stays readable |
+| Hillshade             | Shadow `#4A6382`  | Soft, so the slope overlay stays readable |
 | Summer hiking trails  | `#8A94A0`         | Thin dashed lines, for orientation only   |
 | Place and peak labels | `#0B2545`         | With a white halo                         |
 

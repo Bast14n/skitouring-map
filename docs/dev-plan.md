@@ -94,7 +94,7 @@ Stack reminder: TypeScript, React, Vite, MapLibre GL JS, React Router (hash rout
 - Needs: T09a.
 - Done when: named signposts such as Nosalowa Przełęcz and Hala Gąsienicowa show once each from zoom 13, and none appear off the trails.
 
-### - [ ] T10 Hillshade
+### - [x] T10 Hillshade
 
 - Add the Mapterhorn terrain tiles as a `raster-dem` source and a `hillshade` layer with soft blue-grey shadows.
 - Check the Mapterhorn documentation for the current tile address, encoding and attribution before wiring it in.
