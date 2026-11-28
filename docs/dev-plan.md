@@ -111,7 +111,7 @@ Stack reminder: TypeScript, React, Vite, MapLibre GL JS, React Router (hash rout
 
 ## Phase 2 – Routes
 
-### - [ ] T12 Route data module
+### - [x] T12 Route data module
 
 - Add `src/data/routes.geojson` with 2–3 placeholder routes in the shape from the spec (`id`, `name`, `LineString`).
 - Add `src/data/routes.ts` with types and the only access functions the app may use: `getRoutes()` and `getRouteById(id)`. Sort names with a locale-aware compare so Polish and Slovak letters order correctly.

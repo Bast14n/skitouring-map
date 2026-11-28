@@ -1,0 +1,50 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "lomnicke-sedlo",
+        "name": "Łomnické sedlo"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [20.22, 49.18],
+          [20.21, 49.19],
+          [20.2, 49.2]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "kasprowy-goryczkowa",
+        "name": "Kuźnice – Kasprowy Wierch (Dolina Goryczkowa)"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [19.98, 49.27],
+          [19.98, 49.25],
+          [19.98, 49.23]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "zielony-staw",
+        "name": "Dolina Gąsienicowa – Zielony Staw"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [20.0, 49.25],
+          [20.01, 49.23],
+          [20.02, 49.22]
+        ]
+      }
+    }
+  ]
+}
