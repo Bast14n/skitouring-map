@@ -164,7 +164,7 @@ A simple page with a link back to the map.
 
 ### Principle
 
-Cool colours for everything normal, warm colours only for warnings and steep terrain. Navy and blue carry the interface and the routes. Yellow, orange, red and purple appear only in the slope overlay and in warnings, so a warm colour on screen always means "pay attention".
+Cool colours for everything normal, warm colours only for warnings, steep terrain and the route line. Navy and blue carry the interface and the selected route. Yellow, orange, red and purple appear only in the slope overlay, in warnings and in the yellow route line, which always has a Polar night outline to set it apart from the slope colours.
 
 ### 5.1 Interface
 
@@ -172,7 +172,7 @@ Polar blue palette, as drawn on the design canvas. The CSS variables live in `sr
 
 | Role                | Name        | Hex       | Used for                                                |
 | ------------------- | ----------- | --------- | ------------------------------------------------------- |
-| Primary             | Polar night | `#0B2545` | Header, main text, default route line                   |
+| Primary             | Polar night | `#0B2545` | Header, main text, route outline                        |
 | Accent              | Cobalt      | `#1660C4` | Buttons, links, active controls, focus outline          |
 | Accent bright       | Sky ice     | `#38B6F5` | Selected route, active nav underline, logo mark         |
 | Background          | Powder      | `#F5F8FC` | Page background                                         |
@@ -203,24 +203,24 @@ Checked contrast ratios (4.5 or more passes for normal text):
 
 ### 5.2 Winter base map
 
-| Element               | Hex               | Notes                                     |
-| --------------------- | ----------------- | ----------------------------------------- |
-| Snow and open ground  | `#F4F8FB`         | Slightly cooler than the page background  |
-| Forest                | `#C9D8CC`         | Muted grey-green, stays in the background |
-| Lakes and streams     | `#A9D3F0`         |                                           |
-| Rock and scree        | `#D5D8DC`         |                                           |
-| Contour lines         | `#9FB3C8`         | Every fifth line darker: `#7B8FA6`        |
-| Hillshade             | Shadow `#4A6382`  | Soft, so the slope overlay stays readable |
-| Summer hiking trails  | `#8A94A0`         | Thin dashed lines, for orientation only   |
-| Place and peak labels | `#0B2545`         | With a white halo                         |
+| Element               | Hex              | Notes                                     |
+| --------------------- | ---------------- | ----------------------------------------- |
+| Snow and open ground  | `#F4F8FB`        | Slightly cooler than the page background  |
+| Forest                | `#C9D8CC`        | Muted grey-green, stays in the background |
+| Lakes and streams     | `#A9D3F0`        |                                           |
+| Rock and scree        | `#D5D8DC`        |                                           |
+| Contour lines         | `#9FB3C8`        | Every fifth line darker: `#7B8FA6`        |
+| Hillshade             | Shadow `#4A6382` | Soft, so the slope overlay stays readable |
+| Summer hiking trails  | `#8A94A0`        | Thin dashed lines, for orientation only   |
+| Place and peak labels | `#0B2545`        | With a white halo                         |
 
 ### 5.3 Routes and position
 
-| Element           | Style                                                                                                              |
-| ----------------- | ------------------------------------------------------------------------------------------------------------------ |
-| Ski touring route | Polar night `#0B2545` line with a white outline. The white outline keeps it readable on top of every slope colour. |
-| Selected route    | Sky ice `#38B6F5` line, thicker, with a Polar night outline                                                        |
-| User position     | Blue dot `#1A73E8` with a white ring and a soft halo                                                               |
+| Element           | Style                                                                                                                   |
+| ----------------- | ----------------------------------------------------------------------------------------------------------------------- |
+| Ski touring route | Yellow `#FFC400` line with a Polar night `#0B2545` outline. The dark outline keeps it apart from the yellow slope band. |
+| Selected route    | Sky ice `#38B6F5` line, thicker, with a Polar night outline                                                             |
+| User position     | Blue dot `#1A73E8` with a white ring and a soft halo                                                                    |
 
 Blue is not used anywhere in the slope overlay, so a selected route never blends into steep terrain.
 

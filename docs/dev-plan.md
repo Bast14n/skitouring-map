@@ -118,7 +118,7 @@ Stack reminder: TypeScript, React, Vite, MapLibre GL JS, React Router (hash rout
 - Needs: T01.
 - Done when: unit tests cover both functions, including an unknown id.
 
-### - [ ] T13 Draw routes on the map
+### - [x] T13 Draw routes on the map
 
 - Add the routes as a GeoJSON source with two line layers: white outline underneath, Polar night line on top. Place them above hillshade and contours and below labels.
 - Needs: T05, T12.

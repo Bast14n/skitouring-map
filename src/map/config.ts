@@ -6,12 +6,13 @@ import {
 } from "maplibre-gl";
 import mlcontour from "maplibre-contour";
 import signpostsUrl from "../data/signposts.geojson?url";
+import { getRoutes } from "../services/routes.ts";
 import winterStyle from "./winter-style.json";
 
 // OpenFreeMap Liberty recoloured for winter (spec section 5.2). Tiles, sprite
 // and fonts still come from OpenFreeMap. Trail signposts are a local OSM
 // snapshot fetched at build time (`npm run data:signposts`), loaded as a file,
-// not bundled.
+// not bundled. Ski touring routes come from the route service.
 const baseStyle = winterStyle as StyleSpecification;
 
 // Contour lines are traced in a web worker from the same Mapterhorn tiles as
@@ -43,6 +44,10 @@ export const MAP_STYLE: StyleSpecification = {
   sources: {
     ...baseStyle.sources,
     signposts: { type: "geojson", data: signpostsUrl },
+    routes: {
+      type: "geojson",
+      data: { type: "FeatureCollection", features: [...getRoutes()] },
+    },
     contours: { type: "vector", tiles: [contourUrl], maxzoom: 15 },
   },
 };

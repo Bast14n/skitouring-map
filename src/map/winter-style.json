@@ -2032,6 +2032,36 @@
       }
     },
     {
+      "id": "route_casing",
+      "type": "line",
+      "source": "routes",
+      "layout": { "line-join": "round", "line-cap": "round" },
+      "paint": {
+        "line-color": "#0B2545",
+        "line-width": ["interpolate", ["linear"], ["zoom"], 9, 3, 12, 5, 16, 9]
+      }
+    },
+    {
+      "id": "route_line",
+      "type": "line",
+      "source": "routes",
+      "layout": { "line-join": "round", "line-cap": "round" },
+      "paint": {
+        "line-color": "#FFC400",
+        "line-width": [
+          "interpolate",
+          ["linear"],
+          ["zoom"],
+          9,
+          1.5,
+          12,
+          2.5,
+          16,
+          5
+        ]
+      }
+    },
+    {
       "id": "waterway_line_label",
       "type": "symbol",
       "source": "openmaptiles",

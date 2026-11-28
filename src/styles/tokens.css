@@ -11,6 +11,9 @@
   --color-text-on-dark-muted: #b8c4d6;
   --color-selected-bg: #dcebfb;
 
+  /* Ski touring route line (spec section 5.3) */
+  --color-route: #ffc400;
+
   /* Warning */
   --color-warning-text: #8a4b08;
   --color-warning-bg: #fff4d6;
