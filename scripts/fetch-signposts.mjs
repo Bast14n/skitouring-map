@@ -1,6 +1,6 @@
 // Fetches the trail signposts (OSM guideposts) in the Tatras and writes them to
-// src/data/signposts.geojson. Run with `npm run data:signposts`; CI runs it
-// before every build, so the file is gitignored, not committed.
+// src/data/signposts.geojson. Run by hand with `npm run data:signposts` and
+// commit the result; it is not part of the build or CI (Overpass is unreliable).
 // Data © OpenStreetMap contributors, ODbL.
 import { mkdir, writeFile } from "node:fs/promises";
 

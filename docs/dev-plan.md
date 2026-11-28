@@ -90,7 +90,7 @@ Stack reminder: TypeScript, React, Vite, MapLibre GL JS, React Router (hash rout
 ### - [x] T09b Trail signposts
 
 - The tiles have no valleys and a style can't tell whether a point is on a trail, so show the real trail signposts instead: OSM guideposts (`information=guidepost`, named) in the Tatras, without bike-only and unofficial posts, same-name posts within 300 m merged.
-- `scripts/fetch-signposts.mjs` (`npm run data:signposts`) writes the snapshot `src/data/signposts.geojson` (gitignored, regenerated in CI before each build); the map loads it as a GeoJSON source. Signpost icon (Polar night, white outline), name and elevation, from zoom 13; peaks keep priority.
+- `scripts/fetch-signposts.mjs` (`npm run data:signposts`) writes the snapshot `src/data/signposts.geojson` (committed; refreshed by hand, not in CI, since the Overpass fetch is unreliable; a backend for fresh data is V2); the map loads it as a GeoJSON source. Signpost icon (Polar night, white outline), name and elevation, from zoom 13; peaks keep priority.
 - Needs: T09a.
 - Done when: named signposts such as Nosalowa Przełęcz and Hala Gąsienicowa show once each from zoom 13, and none appear off the trails.
 

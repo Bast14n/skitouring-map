@@ -42,6 +42,7 @@ V1 is deliberately small: a map, a set of predefined routes, one overlay. Everyt
 - Offline maps and a mobile app
 - Polish language version
 - 3D terrain view, slope aspect layer, avalanche terrain layer
+- Backend service that keeps the trail signposts up to date (V2; V1 ships a committed snapshot)
 
 ### Route data for V1
 
@@ -73,7 +74,7 @@ All route access goes through one small data module, so replacing the file with 
 ### Trail signposts
 
 - Source: OpenStreetMap trail guideposts (`information=guidepost`, named) in the Tatras, without bike-only and unofficial posts, and with posts of the same name within 300 m merged.
-- Storage: a snapshot in `src/data/signposts.geojson` (`name`, `ele`), fetched with `npm run data:signposts` before every CI build, so each deploy has fresh data. Not committed.
+- Storage: a snapshot in `src/data/signposts.geojson` (`name`, `ele`), committed to the repo. It is refreshed by hand with `npm run data:signposts` when needed, not on every build (the Overpass fetch is unreliable in CI). A backend service that keeps the data fresh is planned for V2.
 - Shown from zoom 13 with a signpost icon, name and elevation. Peaks keep priority where labels collide.
 
 ## 3. Stack
